@@ -112,6 +112,12 @@ body {
   margin-right: 2rem;
   display: inline-block;
   border-radius: 5px;
+  transition: all 0.1s ease-in;
+}
+
+.repo:hover {
+  background-color: #fff;
+  color: #212a72;
 }
 
 @media (max-width: 500px) {
