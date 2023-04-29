@@ -46,16 +46,43 @@ const createErrorCard = (message) => {
   main.innerHTML = cardHTML;
 };
 
-// Gets the API with thw user DATA
+//
+const addReposToCard = (repos) => {
+  const reposEl = document.getElementById("repos");
+  repos.slice(0, 10);
+
+  repos.forEach((repo) => {
+    const repoEl = document.createElement("a");
+    repoEl.classList.add("repo");
+    repoEl.href = repo.html_url;
+    repoEl.target = "_blank";
+    repoEl.innerText = repo.name;
+
+    reposEl.appendChild(repoEl);
+  });
+};
+
+// Gets the API with the user DATA
 const getUser = async (username) => {
   try {
     const { data } = await axios(API_URL + username);
 
     createUserCard(data);
-    console.log(data);
+    getRepos(username);
   } catch (err) {
     if (err.response.status == 404)
       createErrorCard("No profile with this username");
+  }
+};
+
+// Gets the API with the repos DATA
+const getRepos = async (username) => {
+  try {
+    const { data } = await axios(API_URL + username + "/repos?sort=created");
+
+    addReposToCard(data);
+  } catch (err) {
+    createErrorCard("Problem fetching repos");
   }
 };
 

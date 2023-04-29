@@ -102,17 +102,11 @@ body {
   font-size: 1.5rem;
 }
 
-#repos {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .repo {
   text-decoration: none;
   color: #fff;
   background-color: #212a72;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   margin-right: 2rem;
@@ -128,10 +122,5 @@ body {
 
   .user-form {
     max-width: 400px;
-  }
-
-  #repos {
-    align-items: center;
-    justify-content: center;
   }
 }
